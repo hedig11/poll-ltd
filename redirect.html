@@ -3,6 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="0;url=pollapp://">
+    <script>
+        // Function to check if the app is installed
+        function checkAppInstalled() {
+            var now = new Date().getTime();
+            setTimeout(function() {
+                if (new Date().getTime() - now < 100) {
+                    // If the page is still focused, the app is not installed
+                    redirectToAppStore();
+                }
+            }, 50);
+        }
+
+        // Function to redirect to the app store
+        function redirectToAppStore() {
+            window.location.href = "https://itunes.apple.com/app/pollapp"; // Replace with your actual app store URL
+        }
+
+        // Check if the app is installed when the page loads
+        window.onload = function() {
+            checkAppInstalled();
+        }
+    </script>
     <title>Poll</title>
 </head>
 <body>
