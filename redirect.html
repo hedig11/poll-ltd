@@ -11,6 +11,12 @@
             var title = url.searchParams.get('title');
             var description = url.searchParams.get('description');
 
+            // Log the values to the console
+            console.log("Image URL:", imageURL);
+            console.log("Title:", title);
+            console.log("Description:", description);
+
+
             if (imageURL && title && description) {
                 document.querySelector('meta[property="og:title"]').setAttribute('content', title);
                 document.querySelector('meta[property="og:description"]').setAttribute('content', description);
