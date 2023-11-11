@@ -6,10 +6,10 @@
     <script>
         // Function to update meta tags based on query parameters
         function updateMetaTagsFromURL() {
-            var urlParams = new URLSearchParams(window.location.search);
-            var imageURL = urlParams.get('imageURL');
-            var title = urlParams.get('title');
-            var description = urlParams.get('description');
+            var url = new URL(window.location.href);
+            var imageURL = url.searchParams.get('imageURL');
+            var title = url.searchParams.get('title');
+            var description = url.searchParams.get('description');
 
             if (imageURL && title && description) {
                 document.querySelector('meta[property="og:title"]').setAttribute('content', title);
