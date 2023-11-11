@@ -18,8 +18,27 @@
 
 
             if (imageURL && title && description) {
-                document.head.querySelector('meta[property="og:title"]').setAttribute('content', title);
-                document.head.querySelector('meta[property="og:description"]').setAttribute('content', description);
+                var titleMeta = document.head.querySelector('meta[property="og:title"]');
+                var descriptionMeta = document.head.querySelector('meta[property="og:description"]');
+                var imageMeta = document.head.querySelector('meta[property="og:image"]');
+
+                if (titleMeta) {
+                    titleMeta.setAttribute('content', title);
+                } else {
+                    console.error('Title meta tag not found.');
+                }
+
+                if (descriptionMeta) {
+                    descriptionMeta.setAttribute('content', description);
+                } else {
+                    console.error('Description meta tag not found.');
+                }
+
+                if (imageMeta) {
+                    imageMeta.setAttribute('content', imageURL);
+                } else {
+                    console.error('Image meta tag not found.');
+                }
             }
         }
 
