@@ -6,6 +6,21 @@
     <meta property="og:title" content="Poll">
     <meta property="og:description" content="Description of your link"> <!-- Set the desired description -->
     <script>
+
+        // Function to update meta tags based on query parameters
+        function updateMetaTagsFromURL() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var imageURL = urlParams.get('imageURL');
+            var title = urlParams.get('title');
+            var description = urlParams.get('description');
+
+            if (imageURL && title && description) {
+                document.querySelector('meta[property="og:title"]').setAttribute('content', title);
+                document.querySelector('meta[property="og:description"]').setAttribute('content', description);
+                document.querySelector('meta[property="og:image"]').setAttribute('content', imageURL);
+            }
+        }
+        
         // Function to check if the app is installed
         function checkAppInstalled() {
             var now = new Date().getTime();
