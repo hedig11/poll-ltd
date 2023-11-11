@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="0;url=pollapp://">
-    <script> 
+<!--     <script> 
         var urlParams = new URLSearchParams(window.location.search);
         var imageURL = urlParams.get('imageURL');
         var title = urlParams.get('title');
@@ -11,9 +11,8 @@
         // Set og:title and og:description dynamically
         document.head.querySelector('meta[property="og:title"]').setAttribute('content', title);
         document.head.querySelector('meta[property="og:description"]').setAttribute('content', description);
-    </script>
+    </script> -->
     <script>
-
         // Function to update meta tags based on query parameters
         function updateMetaTagsFromURL() {
             var urlParams = new URLSearchParams(window.location.search);
@@ -27,6 +26,7 @@
                 document.querySelector('meta[property="og:image"]').setAttribute('content', imageURL);
             }
         }
+        updateMetaTagsFromURL()
 
         // Function to check if the app is installed
         function checkAppInstalled() {
