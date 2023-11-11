@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script> 
-            var urlParams = new URLSearchParams(window.location.search);
-            var imageURL = urlParams.get('imageURL');
-            var title = urlParams.get('title');
-            var description = urlParams.get('description');
-    </script>
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="0;url=pollapp://">
-    <meta property="og:title" content="{title}">
-    <meta property="og:description" content="{description}"> <!-- Set the desired description -->
+    <script> 
+        var urlParams = new URLSearchParams(window.location.search);
+        var imageURL = urlParams.get('imageURL');
+        var title = urlParams.get('title');
+        var description = urlParams.get('description');
+        // Set og:title and og:description dynamically
+        document.head.querySelector('meta[property="og:title"]').setAttribute('content', title);
+        document.head.querySelector('meta[property="og:description"]').setAttribute('content', description);
+    </script>
     <script>
 
         // Function to update meta tags based on query parameters
