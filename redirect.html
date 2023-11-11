@@ -20,7 +20,9 @@
                 document.querySelector('meta[property="og:image"]').setAttribute('content', imageURL);
             }
         }
-        
+
+       updateMetaTagsFromURL()
+
         // Function to check if the app is installed
         function checkAppInstalled() {
             var now = new Date().getTime();
@@ -39,7 +41,6 @@
 
         // Check if the app is installed when the page loads
         window.onload = function() {
-            updateMetaTagsFromURL()
             checkAppInstalled();
         }
     </script>
