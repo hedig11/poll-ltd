@@ -2,16 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=pollapp://">
-<!--     <script> 
-        var urlParams = new URLSearchParams(window.location.search);
-        var imageURL = urlParams.get('imageURL');
-        var title = urlParams.get('title');
-        var description = urlParams.get('description');
-        // Set og:title and og:description dynamically
-        document.head.querySelector('meta[property="og:title"]').setAttribute('content', title);
-        document.head.querySelector('meta[property="og:description"]').setAttribute('content', description);
-    </script> -->
+    <meta http-equiv="refresh" content="2;url=pollapp://"> <!-- Delayed redirection for 2 seconds -->
     <script>
         // Function to update meta tags based on query parameters
         function updateMetaTagsFromURL() {
@@ -20,18 +11,12 @@
             var title = urlParams.get('title');
             var description = urlParams.get('description');
 
-            // Log the values to the console
-            console.log("Image URL:", imageURL);
-            console.log("Title:", title);
-            console.log("Description:", description);
-
             if (imageURL && title && description) {
                 document.querySelector('meta[property="og:title"]').setAttribute('content', title);
                 document.querySelector('meta[property="og:description"]').setAttribute('content', description);
                 document.querySelector('meta[property="og:image"]').setAttribute('content', imageURL);
             }
         }
-        updateMetaTagsFromURL()
 
         // Function to check if the app is installed
         function checkAppInstalled() {
@@ -51,12 +36,13 @@
 
         // Check if the app is installed when the page loads
         window.onload = function() {
+            updateMetaTagsFromURL();
             checkAppInstalled();
         }
     </script>
     <title>Poll</title>
 </head>
 <body>
-    <p>If you ar not redirected, <a href="pollapp://">click here</a>.</p>
+    <p>If you are not redirected, <a href="pollapp://">click here</a>.</p>
 </body>
 </html>
